@@ -13,7 +13,7 @@
 		<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
 		
 		<!-- Custom CSS -->
-		<link rel="stylesheet" href="{% stat 'css/blog.css' %}>
+		<link rel="stylesheet" href="{% static 'css/blog.css' %}>
 		
 		<!-- Fonts -->
 		<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -27,22 +27,22 @@ font-family: 'Russo One', sans-serif; -->
 	<body>
 	
 		<!-- NAVBAR -->
-		<nav class="navbar navbar-default techfont custom-navbar">
+		<nav class="navbar navbar-expand-lg bg-light">
 			<div class="container">
-				<ul class="nav navbar-nav">
-					<li><a class="navbar-brand bigbrand" href="{% url post_list %}">My Blog</a></li>
-					<li><a href="{% url 'about'  %}">About</a></li>
-					<li><a href="https://www.github.com">Github</a></li>
+				<ul class="navbar-nav">
+					<li><a class="navbar-brand" href="{% url 'post_list' %}">My Blog </a></li>
+					<li><a class="nav-link" href="{% url 'about'  %}">About </a></li>
+					<li><a class="nav-link" href="https://www.github.com">Github </a></li>
 				</ul>
 				
-				<ul class="nav navbar-nav navbar-right">
+				<ul class="navbar-nav">
 					{% if user.is_authenticated %}
 						<li><a href="{% url 'post_new' %}">New Post</a></li>
 						<li><a href="{% url 'post_draft_list' %}">Drafts</a></li>
 						<li><a href="{% url 'logout' %}">Logout</a></li>
 						<li><a>Welcome: {{ user.username }}</a></li>
 					{% else %}
-						<li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-user"></span></a></li>
+						<li><a href="{% url 'login' %}">Login</a></li>
 					
 					{% endif %}
 				</ul>
